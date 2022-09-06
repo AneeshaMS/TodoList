@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="container">
+      
+           
+            <div class="row">
+
+                <h4 style="text-align: center; color:white; margin-top: 5%;">TODO LIST</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="ADD TODO" name="task" [(ngModel)]="addTaskValue" required>
+                    <span class="input-group-text" id="basic-addon2" (click)="AddBtn()"><i class="fa-solid fa-plus"></i></span>
+                  </div>
+                  <div class="head">
+                    <h3>Things to do.....!!</h3>
+                  </div>
+                  <div class="lists" *ngFor="let task of taskArr">
+                    <span>{{task.task_name}}</span> 
+                    <button class="btn"><i class="fa-solid fa-trash" (click)="deleteBtn(task)"></i></button>
+                    &nbsp;
+                    <button class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="callEdit(task)" ><i class="fa-solid fa-pen-to-square"></i></button>
+                  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group" style="margin-top:-10px">
+                <input type="text" class="form-control" placeholder="ADD TODO" name="task" [(ngModel)]="editTaskValue" required>
+                <span class="input-group-text" id="basic-addon2" (click)="editBtn()" style="color:white"><i class="fa-regular fa-pen-to-square"></i></span>
+              </div>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
